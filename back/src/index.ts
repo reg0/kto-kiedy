@@ -8,7 +8,11 @@ server.get('/ping', async (request, reply) => {
   return 'pong\n'
 })
 
-teamsRoutes(server)
+server.register((instance, opts, next) => {
+  teamsRoutes(instance);
+
+  next();
+}, {prefix: '/api'});
 
 server.listen({ port: 8080 }, (err, address) => {
   if (err) {

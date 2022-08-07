@@ -2,14 +2,16 @@
   "name": "kto-kiedy-front",
   "version": "0.1.0",
   "private": true,
-  "dependencies": {
+  "devDependencies": {
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^13.5.0",
     "@types/jest": "^27.5.2",
     "@types/node": "^16.11.47",
     "@types/react": "^18.0.15",
-    "@types/react-dom": "^18.0.6",
+    "@types/react-dom": "^18.0.6"
+  },
+  "dependencies": {
     "dayjs": "^1.11.4",
     "http-proxy-middleware": "^2.0.6",
     "react": "^18.2.0",

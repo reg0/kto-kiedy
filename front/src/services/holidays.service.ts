@@ -1,5 +1,5 @@
-import { IHolidaysService } from '@/interfaces/api/holidays.service.interface';
-import { getArrayOfDates, MyDate } from '@/utils/date.utils';
+import { IHolidaysService }from 'interfaces/api/holidays.service.interface';
+import { getArrayOfDates, MyDate }from 'utils/date.utils';
 
 const PERMANENT_HOLIDAYS = [
   [1, 1],

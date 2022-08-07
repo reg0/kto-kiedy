@@ -1,5 +1,5 @@
-import { IPerson } from '@/interfaces/models/person.model.interface';
-import { IPeopleService } from '@/interfaces/api/people.service.interface';
+import { IPerson }from 'interfaces/models/person.model.interface';
+import { IPeopleService }from 'interfaces/api/people.service.interface';
 import { ALL } from './activities.stub.service';
 
 export class PeopleService implements IPeopleService {

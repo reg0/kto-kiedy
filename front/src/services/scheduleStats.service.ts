@@ -1,5 +1,5 @@
-import { IActivity } from '@/interfaces/models/actvity.model.interface';
-import { IPersonWithSchedule } from '@/interfaces/models/person.model.interface';
+import { IActivity }from 'interfaces/models/actvity.model.interface';
+import { IPersonWithSchedule }from 'interfaces/models/person.model.interface';
 import { IScheduleStatsService } from './scheduleStats.service.interface';
 
 export class ScheduleStatsService implements IScheduleStatsService {

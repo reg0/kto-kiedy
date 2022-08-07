@@ -1,5 +1,5 @@
-import { ActivityType } from '@/interfaces/enums/activityType.enum';
-import { IActivity } from '@/interfaces/models/actvity.model.interface';
+import { ActivityType }from 'interfaces/enums/activityType.enum';
+import { IActivity }from 'interfaces/models/actvity.model.interface';
 
 export class Activity implements IActivity {
   constructor(

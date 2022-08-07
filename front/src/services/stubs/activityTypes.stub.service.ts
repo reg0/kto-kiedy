@@ -1,5 +1,5 @@
-import { IActivityTypesService } from '@/interfaces/api/activityTypes.service.interface';
-import { ActivityTypes, ActivityType } from '@/interfaces/enums/activityType.enum';
+import { IActivityTypesService }from 'interfaces/api/activityTypes.service.interface';
+import { ActivityTypes, ActivityType }from 'interfaces/enums/activityType.enum';
 
 export class ActivityTypesStubService implements IActivityTypesService {
   getActivityTypes(teamId: string): Promise<ActivityType[]> { // eslint-disable-line @typescript-eslint/no-unused-vars

@@ -1,4 +1,4 @@
-import { IPerson } from '@/interfaces/models/person.model.interface';
+import { IPerson }from 'interfaces/models/person.model.interface';
 
 export class Person implements IPerson {
   constructor(public readonly id: string, public readonly firstName: string, public readonly lastName: string) { }

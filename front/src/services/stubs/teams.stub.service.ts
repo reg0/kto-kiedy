@@ -1,5 +1,5 @@
-import { ITeamsService } from '@/interfaces/api/teams.service.interface';
-import { ITeam } from '@/interfaces/models/team.model.interface';
+import { ITeamsService }from 'interfaces/api/teams.service.interface';
+import { ITeam }from 'interfaces/models/team.model.interface';
 
 export class TeamsStubService implements ITeamsService {
   getTeams(): Promise<ITeam[]> {

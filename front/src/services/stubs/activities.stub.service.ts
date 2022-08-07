@@ -1,11 +1,11 @@
-import { IScheduleService } from '@/interfaces/api/schedule.service.interface';
-import { getArrayOfDates } from '@/utils/date.utils';
-import { IActivity } from '@/interfaces/models/actvity.model.interface';
-import { Activity } from '@/models/activity.model';
-import { ActivityTypes } from '@/interfaces/enums/activityType.enum';
-import { IPersonWithSchedule } from '@/interfaces/models/person.model.interface';
-import { Person } from '@/models/person.model';
-import { PersonWithSchedule } from '@/models/personWithSchedule.model';
+import { IScheduleService }from 'interfaces/api/schedule.service.interface';
+import { getArrayOfDates }from 'utils/date.utils';
+import { IActivity }from 'interfaces/models/actvity.model.interface';
+import { Activity }from 'models/activity.model';
+import { ActivityTypes }from 'interfaces/enums/activityType.enum';
+import { IPersonWithSchedule }from 'interfaces/models/person.model.interface';
+import { Person }from 'models/person.model';
+import { PersonWithSchedule }from 'models/personWithSchedule.model';
 
 export const ALL = [
   new Person('p0000', 'Kamil', 'Mikula'),

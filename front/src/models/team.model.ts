@@ -1,4 +1,4 @@
-import { ITeam } from '@/interfaces/models/team.model.interface';
+import { ITeam }from 'interfaces/models/team.model.interface';
 
 export class Team implements ITeam {
   constructor (

@@ -1,17 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import teamsService from 'services/stubs/teams.stub.service';
 
 
 function App() {
   const [teamNames, setTeamNames] = useState(['a']);
 
   useEffect(() => {
-    fetch(
-      '/api/teams',
-    ).then(result => {
-        return result.json();
-    }).then(rows => {
+    teamsService.getTeams()
+    .then(rows => {
       setTeamNames(rows.map((it: any) => it.name));
     }).catch(console.error);
   }, []);

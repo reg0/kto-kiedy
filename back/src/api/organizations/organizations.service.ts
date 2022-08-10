@@ -2,7 +2,7 @@ import { Organization } from "./organization.model";
 import db from '../../utils/db'
 import { getLogger } from '../../utils/logging';
 
-export class organizationService {
+export class OrganizationsService {
     private logger = getLogger('OrganizationService');
 
     async get(id: string): Promise<Organization | null> {
@@ -10,7 +10,7 @@ export class organizationService {
         return db.queryOne({sql: "select * from organization where id = $1", values: [id], mappingFn: Organization.parse});
     }
 
-    async list(): promise<Organization[]> {
+    async list(): Promise<Organization[]> {
         this.logger.info("querying all organizations");
         return db.queryMany<Organization>({sql: 'select * from organzation', mappingFn: Organization.Parse})
     }
@@ -20,4 +20,4 @@ export class organizationService {
     }
 }
 
-export deafult new organizationService()
+export default new OrganizationsService()

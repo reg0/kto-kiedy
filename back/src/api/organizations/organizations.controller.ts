@@ -1,8 +1,8 @@
 import { FastifyReply, FastifyRequest } from "fastify";
-import organizationService, { OrganizationService } from  "./organization.service";
+import organizationService, { OrganizationsService } from  "./organizations.service";
 
-class OrganizationController {
- constructor(private organizationService: OrganizationService)   {}
+class OrganizationsController {
+ constructor(private organizationService: OrganizationsService)   {}
 
 async get(request: FastifyRequest<{Params: {id: string}}>, reply: FastifyReply) {
     return organizationService.get(request.params.id)
@@ -17,4 +17,4 @@ async create(request: FastifyRequest<{Body: {name: string,}}>, reply: FastifyRep
 }
 }
 
-export default new OrganizationController(organizationService)
+export default new OrganizationsController(organizationService)

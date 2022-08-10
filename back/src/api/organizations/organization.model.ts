@@ -3,7 +3,7 @@ export class Organization{
         public readonly id: string,
         public readonly name: string ) {}
 
-        static parse(dbObj: any): Organiztion {
+        static parse(dbObj: any): Organization {
             return new Organization(dbObj.id, dbObj.name);
         }
 }

@@ -12,7 +12,7 @@ export class OrganizationsService {
 
     async list(): Promise<Organization[]> {
         this.logger.info("querying all organizations");
-        return db.queryMany<Organization>({sql: 'select * from organzation', mappingFn: Organization.Parse})
+        return db.queryMany<Organization>({sql: 'select * from organzation', mappingFn: Organization.parse})
     }
 
     async create(name:string): Promise<Organization | null> {

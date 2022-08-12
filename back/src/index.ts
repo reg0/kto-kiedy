@@ -1,6 +1,7 @@
 import 'dotenv/config' 
 import fastify from 'fastify'
 import teamsRoutes from './api/teams/teams.routes'
+import organizationsRoutes from './api/organizations/organizations.routes'
 
 const server = fastify()
 
@@ -9,6 +10,7 @@ server.get('/ping', async (request, reply) => {
 })
 
 teamsRoutes(server)
+organizationsRoutes(server)
 
 server.listen({ port: 8080 }, (err, address) => {
   if (err) {

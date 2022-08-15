@@ -15,15 +15,15 @@ exports.setup = function(options, seedLink) {
 };
 
 exports.up = function(db) {
-  return db.createTable('EmployeesTeams', {
-    team_id: { type: 'string', foreignKey: true},
-    employee_id: { type: 'string', foreignKey: true},
+  return db.createTable('employees_teams', {
+    team_id: { type: 'string', primaryKey: true},
+    employee_id: { type: 'string', primaryKey: true},
     role: 'string',
   });
 };
 
 exports.down = function(db) {
-  return db.dropTable('EmployeesTeams');
+  return db.dropTable('employees_teams');
 };
 
 exports._meta = {

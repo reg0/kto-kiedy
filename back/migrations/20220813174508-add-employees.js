@@ -15,8 +15,8 @@ exports.setup = function(options, seedLink) {
 };
 
 exports.up = function(db) {
-  return db.createTable('Employees', {
-    id: { type: 'string', primeryKey: true},
+  return db.createTable('employees', {
+    id: { type: 'string', primaryKey: true},
     name: 'string',
     surname: 'string',
     email: 'string',
@@ -25,7 +25,7 @@ exports.up = function(db) {
 };
 
 exports.down = function(db) {
-  return db.dropTable('Employees');
+  return db.dropTable('employees');
 };
 
 exports._meta = {

@@ -16,7 +16,7 @@ exports.setup = function(options, seedLink) {
 
 exports.up = function(db) {
   return db.createTable('organizations', {
-    id: { type: 'string', primeryKey: true},
+    id: { type: 'string', primaryKey: true},
     name: 'string',
   });
 };

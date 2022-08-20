@@ -14,16 +14,14 @@ exports.setup = function(options, seedLink) {
   seed = seedLink;
 };
 
-exports.up = function(db) {
-  return db.createTable('holidays', {
-    id: { type: 'string', primaryKey: true},
-    name: 'string',
-    date: {type: 'date', unique: true},
-  });
+exports.up = async function(db) {
+  await db.insert('activity_types', name, 'HOME_OFFICE')
+  await db.insert('activity_types', name, 'OFFICE')
+  return db.insert('activity_types', name, 'VACATION')
 };
 
 exports.down = function(db) {
-  return db.dropTable('holidays');
+  return db.runSql("delete from activity_types where name= 'HOME_OFFICE' or name= 'OFFICE' or name = 'VACATION'");
 };
 
 exports._meta = {

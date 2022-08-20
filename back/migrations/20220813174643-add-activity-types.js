@@ -15,14 +15,14 @@ exports.setup = function(options, seedLink) {
 };
 
 exports.up = function(db) {
-  return db.createTable('organizations', {
+  return db.createTable('activity_types', {
     id: { type: 'string', primaryKey: true},
     name: 'string',
-  });
+  })
 };
 
 exports.down = function(db) {
-  return db.dropTable('organizations');
+  return db.dropTable('activity_types')
 };
 
 exports._meta = {

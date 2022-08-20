@@ -15,14 +15,15 @@ exports.setup = function(options, seedLink) {
 };
 
 exports.up = function(db) {
-  return db.createTable('organizations', {
+  return db.createTable('holidays', {
     id: { type: 'string', primaryKey: true},
     name: 'string',
+    date: {type: 'date', unique: true},
   });
 };
 
 exports.down = function(db) {
-  return db.dropTable('organizations');
+  return db.dropTable('holidays');
 };
 
 exports._meta = {

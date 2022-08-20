@@ -1,4 +1,5 @@
 'use strict';
+const {v4: uuidv4} = require('uuid');
 
 var dbm;
 var type;
@@ -15,9 +16,9 @@ exports.setup = function(options, seedLink) {
 };
 
 exports.up = async function(db) {
-  await db.insert('activity_types', name, 'HOME_OFFICE')
-  await db.insert('activity_types', name, 'OFFICE')
-  return db.insert('activity_types', name, 'VACATION')
+  await db.insert('activity_types', ['id', 'name'], [uuidv4(), 'HOME_OFFICE'])
+  await db.insert('activity_types', ['id', 'name'], [uuidv4(), 'OFFICE'])
+  return db.insert('activity_types', ['id', 'name'], [uuidv4(), 'VACATION'])
 };
 
 exports.down = function(db) {

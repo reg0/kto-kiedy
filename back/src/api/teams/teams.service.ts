@@ -5,7 +5,7 @@ import { getLogger } from '../../utils/logging';
 export class TeamsService {
   private logger = getLogger('TeamsService');
 
-  async get(id: string): Promise<Team | null> {
+  async get(id: string, organizationId: string): Promise<Team | null> {
     this.logger.info("querying team by id = '%s'", [id]);
     return db.queryOne({sql: "select * from teams where id = $1", values: [id], mappingFn: Team.parse});
   }

@@ -1,15 +1,30 @@
 import { FastifyReply, FastifyRequest } from "fastify";
+import { doAuthorized } from "../../utils/auth";
+import { AuthInfo, AuthorizedRequest } from "../auth/auth.model";
+import authService, { AuthService } from "../auth/auth.service";
+import { sendError } from "../commons/errors/error.handler";
 import teamsService, { TeamsService } from "./teams.service";
 
-class TeamsController {
-  constructor(private teamsService: TeamsService) { }
+interface GetTeamRequestParams {
+  id: string
+}
 
-  async get(request: FastifyRequest<{Params: {id: string, organization_id: string}}>, reply: FastifyReply) {
-    return teamsService.get(request.params.id, request.params.organization_id)
+class TeamsController {
+  constructor(private teamsService: TeamsService, private authService: AuthService) { }
+
+  public readonly get = async (request: AuthorizedRequest<GetTeamRequestParams>, reply: FastifyReply) => {
+    return doAuthorized(request, reply, (authInfo: AuthInfo) => {
+      return this.teamsService.get(request.params.id, authInfo)
+    })
   }
 
-  async list(request: FastifyRequest, reply: FastifyReply) {
-    return teamsService.list()
+  public readonly list = async (request: AuthorizedRequest<null>, reply: FastifyReply) => {
+    const authInfo = await this.authService.getAuthInfoForToken(request.headers.authorization)
+    try {
+      return await this.teamsService.list(authInfo)
+    } catch (err) {
+      sendError(err, reply)
+    }
   }
 
   async create(request: FastifyRequest<{Body: {name: string, colorHex: string}}>, reply: FastifyReply) {
@@ -17,4 +32,4 @@ class TeamsController {
   }
 }
 
-export default new TeamsController(teamsService)
+export default new TeamsController(teamsService, authService)

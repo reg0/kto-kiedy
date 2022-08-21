@@ -1,7 +1,8 @@
 import 'dotenv/config' 
 import fastify from 'fastify'
-import teamsRoutes from './api/teams/teams.routes'
+import authRoutes from './api/auth/auth.routes'
 import organizationsRoutes from './api/organizations/organizations.routes'
+import teamsRoutes from './api/teams/teams.routes'
 
 const server = fastify()
 
@@ -10,8 +11,9 @@ server.get('/ping', async (request, reply) => {
 })
 
 server.register((instance, opts, next) => {
-  teamsRoutes(instance)
+  authRoutes(instance)
   organizationsRoutes(instance)
+  teamsRoutes(instance)
 
   next();
 }, {prefix: '/api'});

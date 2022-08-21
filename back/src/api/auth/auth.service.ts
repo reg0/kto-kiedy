@@ -6,7 +6,7 @@ export class AuthService {
     private logger = getLogger('OrganizationsService');
 
     async getAuthInfoForToken(token: string): Promise<AuthInfo> {
-        this.logger.info("querying auth info for token = '%s'", [token]);
+        this.logger.debug("querying auth info for token = '%s'", [token]);
         // TODO: replace with actual database call
 
         const adminToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3OWFiYjE4My1iZWQ5LTRhOGEtYjBhNC1iMTZmMDNlNGI2ZTciLCJuYW1lIjoiQWRtaW4iLCJzdXJuYW1lIjoiQWRtaW5vdmljaCIsImlhdCI6MTUxNjIzOTAyM30.YOLCKilLg5nRIiKBxArWTXodLHCkLYrNglaFFfIqpdU'

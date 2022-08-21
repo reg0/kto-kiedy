@@ -12,13 +12,13 @@ interface GetTeamRequestParams {
 class TeamsController {
   constructor(private teamsService: TeamsService, private authService: AuthService) { }
 
-  public readonly get = async (request: AuthorizedRequest<GetTeamRequestParams>, reply: FastifyReply) => {
+  async get(request: AuthorizedRequest<GetTeamRequestParams>, reply: FastifyReply) {
     return doAuthorized(request, reply, (authInfo: AuthInfo) => {
       return this.teamsService.get(request.params.id, authInfo)
     })
   }
 
-  public readonly list = async (request: AuthorizedRequest<null>, reply: FastifyReply) => {
+  async list(request: AuthorizedRequest<null>, reply: FastifyReply) {
     const authInfo = await this.authService.getAuthInfoForToken(request.headers.authorization)
     try {
       return await this.teamsService.list(authInfo)

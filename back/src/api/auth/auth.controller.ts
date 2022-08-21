@@ -5,7 +5,7 @@ import authService, { AuthService } from  "./auth.service";
 class AuthController {
  constructor(private authService: AuthService) { }
 
-  public readonly me = async (request: FastifyRequest<{Headers: {authorization: string}}>, reply: FastifyReply) => {
+  async me(request: FastifyRequest<{Headers: {authorization: string}}>, reply: FastifyReply) {
     try {
       return await this.authService.getAuthInfoForToken(request.headers.authorization)
     } catch (err) {

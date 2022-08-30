@@ -15,8 +15,8 @@ export class EmployessService {
     return db.queryMany<Employee>({sql: 'select * from employees', mappingFn: Employee.parse})
   }
 
-  async create(name: string, forname: string, teamId: string): Promise<Employee | null> {
-    const employee = await db.insert({sql: 'insert into employees values($1, $2, $3, $4) returning *', values: [db.newId(), name, forname, teamId], mappingFn: Employee.parse});
-    return db.insert({sql: 'insert into employees_teams values ($1, $2) returning *', values: [db.newId(), teamId], mappingFn: Employee.parse});
+  async create(id: string, name: string, surname: string, teamId: string): Promise<Employee | null> {
+    const employee = await db.insert({sql: 'insert into employees values($1, $2, $3, $4) returning *', values: [db.newId(), name, surname, teamId], mappingFn: Employee.parse});
+    return db.insert({sql: 'insert into employees_teams values ($1, $2) returning *', values: [id, teamId], mappingFn: Employee.parse});
   }
 }

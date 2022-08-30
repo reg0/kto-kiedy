@@ -12,8 +12,8 @@ class EmployeesController {
        return employeesService.list()
    }
 
-   async create(request: FastifyRequest<{Body: {name: string, forname: string}}>, reply: FastifyReply) {
-       return employeesService.create(request.body.name, request.body.forname)
+   async create(request: FastifyRequest<{Body: {name: string, surname: string, teamId: string}}>, reply: FastifyReply) {
+       return employeesService.create(request.body.name, request.body.surname, request.body.teamId)
    }
 }
 

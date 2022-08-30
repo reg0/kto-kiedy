@@ -15,8 +15,8 @@ export class TeamsService {
     return db.queryMany<Team>({sql: 'select * from teams', mappingFn: Team.parse})
   }
 
-  async create(name: string, colorHex: string): Promise<Team | null> {
-    return db.insert({sql: 'insert into teams values($1, $2, $3) returning *', values: [db.newId(), name, colorHex], mappingFn: Team.parse});
+  async create(name: string, colorHex: string, organizationId: string): Promise<Team | null> {
+    return db.insert({sql: 'insert into teams values($1, $2, $3, $4) returning *', values: [db.newId(), name, colorHex, organizationId], mappingFn: Team.parse});
   }
 }
 
